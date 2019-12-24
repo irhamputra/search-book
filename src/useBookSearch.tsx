@@ -23,11 +23,10 @@ const useBookSearch = (query: string, pageNumber: number) => {
             .then(res => {
                 setBooks((prevState): any => {
                     return [
-                        ...new Set<any[]>([...prevState, ...res.data.docs])
+                        ...new Set<object[]>([...prevState, ...res.data.docs])
                     ];
                 });
                 setHasMore(res.data.docs.length > 0);
-                console.log(res.data);
                 setLoading(false);
             })
             .catch(e => {
